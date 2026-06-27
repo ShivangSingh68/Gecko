@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+import { Command } from "commander";
+import { runWakeup } from "./tui/wakeup.js";
+
+const program = new Command();
+
+program
+    .name("Gecko")
+    .description("Gecko CLI")
+    .version("0.0.1");
+
+program
+    .command("wakeup")
+    .description("Show the banner and pick cli or telegram mode")
+    .action(async () => {
+        await runWakeup(); 
+    });
+
+await program.parseAsync();
